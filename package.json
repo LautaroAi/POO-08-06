@@ -1,0 +1,22 @@
+{
+  "name": "08-06",
+  "version": "1.0.0",
+  "description": "````\r ├── src/\r │   ├── Models/\r │   ├── Views/\r │   ├── Controllers/\r │   ├── Repositories/\r │   ├── Services/ (Lógica de negocio, procesadores, etc.)\r │   ├── Factories/\r │   ├── Observers/\r │   └── Config/ (Singleton de Base de Datos)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.2",
+    "@types/uuid": "^10.0.0"
+  }
+}
