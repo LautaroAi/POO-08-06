@@ -299,21 +299,43 @@ classDiagram
 
 2. **Código Fuente Organizado:** Estructura de carpetas limpia y profesional:  
 
-```
-    ├── src/  
-    │   ├── Models/  
-    │   ├── Views/  
-    │   ├── Controllers/  
-    │   ├── Repositories/  
-    │   ├── Services/ (Lógica de negocio, procesadores, etc.)  
-    │   ├── Factories/  
-    │   ├── Observers/  
-    │   ├── Config/ (Singleton de Base de Datos)
-    │   └── main.ts
-    ├── package-lock.json
-    ├── package.json  
-    └── tsconfig.json
-
+``` text
+src/
+├── Models/
+│   ├── Invoice.ts
+│   └── Plan.ts                <--- Clase abstracta y concretas
+│   ├── Subscription.ts
+│   ├── User.ts
+├── Config/
+│   └── Database.ts            <--- Singleton de Base de Datos
+├── Repositories/
+│   ├── IInvoiceRepository.ts
+│   ├── ISubscriptionRepository.ts
+│   ├── IUserRepository.ts
+│   └── InvoiceRepository.ts
+│   ├── SubscriptionRepository.ts
+│   ├── UserRepository.ts
+├── Factories/
+│   └── NotificationFactory.ts
+│   ├── PlanFactory.ts
+├── Notifications/
+│   ├── EmailNotifier.ts
+│   ├── INotifier.ts
+│   └── PushNotifier.ts
+│   ├── SmsNotifier.ts
+├── Observers/
+│   └── AccessControlObserver.ts
+│   ├── EmailNotificationObserver.ts
+│   ├── IObserver.ts
+│   ├── MetricsObserver.ts
+├── Services/                  <--- Lógica de negocio, procesadores, etc.
+│   └── PaymentService.ts      <--- Actúa como Sujeto del Observer
+│   ├── SubscriptionService.ts
+│   ├── UserService.ts
+├── Controllers/
+│   └── SubscriptionController.ts
+│   ├── UserController.ts
+└── main.ts                    <--- Configuración y ejecución del flujo
 ```
 
 3. **Prueba de Concepto (Main / Seeds):** Un archivo principal que configure las dependencias al arrancar (Simulación de un contenedor IoC) y ejecute un flujo completo automáticamente en la consola para demostrar que todo el engranaje funciona sin errores.
